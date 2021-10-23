@@ -1,0 +1,26 @@
+let tags = [ "Env", "Owner" ]
+
+let taggable_resources = Resources.*[ Type in [
+    'AWS::EC2::VPC',
+    'AWS::EC2::Subnet',
+    'AWS::EC2::RouteTable',
+    'AWS::EC2::NetworkAcl',
+    'AWS::EC2::EIP',
+    'AWS::EC2::NatGateway',
+    'AWS::EC2::InternetGateway'
+] ]
+
+rule Mandatory_tags_for_resources when %taggable_resources !empty {
+  %taggable_resources {
+    #
+    # Collect all the `Key`s for Tags present
+    #
+    let tag_keys = Properties.Tags[*].Key
+
+    #
+    # Ensure that the specified set in %tags is present in the keys
+    # If it fine to have Tags with keys beyond this set.
+    #
+    %tags IN %tag_keys
+  }
+}
