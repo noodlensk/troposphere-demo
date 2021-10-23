@@ -1,0 +1,14 @@
+[
+    {
+        "ParameterKey": "Environment",
+        "ParameterValue": "Dev"
+    },
+    {
+        "ParameterKey": "VPCCidrBlock",
+        "ParameterValue": "10.0.0.0/24"
+    },
+    {
+        "ParameterKey": "VPCDNSHostnamesEnabled",
+        "ParameterValue": "False"
+    }
+]

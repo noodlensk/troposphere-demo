@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
 """
-This script generates CloudFormation template for VPC and Private,
-Public and protected subnets
+This script generates CloudFormation template for VPC with 3 following
+multi-az subnets:
+
+- `Public` (Outbound internet access)
+- `Private` (No internet access)
+- `Protected` (Outbound internet access via NAT)
 """
 
 import os
@@ -72,7 +76,7 @@ conditional_vpc_dns_hostnames_enabled = template.add_condition(
 )
 
 # default tags will be added to each resource
-default_tags = {"Env": Ref(parameter_env), "Owner": "growth-team"}
+default_tags = {"Env": Ref(parameter_env), "Owner": "app-team"}
 
 vpc = template.add_resource(
     ec2.VPC(
@@ -293,6 +297,6 @@ template.add_output(
 )
 
 with open(
-    os.path.dirname(os.path.realpath(__file__)) + "/output/growth.yaml", mode="w"
+    os.path.dirname(os.path.realpath(__file__)) + "/output/resources.yaml", mode="w"
 ) as w:
     w.write(template.to_yaml())

@@ -36,6 +36,10 @@ make setup # Setup (Mac OS only)
 make dep # Download dependencies
 
 make generate # Generate Cloud Formation template
+
+aws cloudformation create-stack --stackname mystack # Deploy created template to dev env
+--template-body file:///$(pwd)/templates/output/resources.yaml
+--parameters file:///$(pwd)/envs/dev.json
 ```
 
 ## Development
@@ -48,6 +52,7 @@ See [CONTRIBUTING.md](./CONTRUBUTING.md) for code style and tooling.
 - [ ] Establish naming convention for resources and setup validation rules for it
 - [ ] Move dynamic part of template from Cloudformation to Troposphere(?)
 - [ ] Extend example with [sceptre](https://github.com/Sceptre/sceptre) for managing Cloudformation stacks
+- [ ] Add diagram of created arch
 
 ## Refs
 

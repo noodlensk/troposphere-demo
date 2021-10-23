@@ -1,0 +1,14 @@
+[
+    {
+        "ParameterKey": "Environment",
+        "ParameterValue": "Stage"
+    },
+    {
+        "ParameterKey": "VPCCidrBlock",
+        "ParameterValue": "10.1.0.0/24"
+    },
+    {
+        "ParameterKey": "VPCDNSHostnamesEnabled",
+        "ParameterValue": "True"
+    }
+]
