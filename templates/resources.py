@@ -296,8 +296,13 @@ template.add_output(
     ]
 )
 
+output_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "output")
+
+# created dir if not exist
+os.makedirs(output_folder, exist_ok=True)
+
 with open(
-    os.path.join(os.path.dirname(os.path.realpath(__file__)), "output/resources.yaml"),
+    os.path.join(output_folder, "resources.yaml"),
     mode="w",
 ) as w:
     w.write(template.to_yaml())
