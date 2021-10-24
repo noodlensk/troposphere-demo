@@ -8,12 +8,12 @@ dep-dev: ## Download dev dependencies
 dep: dep-dev ## Download dependencies
 	pip3 install -r requirements.txt
 lint: ## Lint
-	black --check .
 	isort --check-only .
+	black --check .
 	flake8 .
 lint-fix: ## Fix errors from linter
-	black .
 	isort .
+	black .
 generate: ## Generate template
 	python3 templates/resources.py
 validate: generate ## Validate templates against rules
