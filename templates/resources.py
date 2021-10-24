@@ -297,6 +297,7 @@ template.add_output(
 )
 
 with open(
-    os.path.dirname(os.path.realpath(__file__)) + "/output/resources.yaml", mode="w"
+    os.path.join(os.path.dirname(os.path.realpath(__file__)), "output/resources.yaml"),
+    mode="w",
 ) as w:
     w.write(template.to_yaml())
